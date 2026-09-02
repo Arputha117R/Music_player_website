@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Music Player</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fa-solid fa-music"></i>
+                <h2>WaveStream</h2>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html"><i class="fa-solid fa-house"></i> Back to App</a></li>
+                    <li class="active"><a href="#"><i class="fa-solid fa-gear"></i> Admin Panel</a></li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header>
+                <h2>Admin Dashboard</h2>
+            </header>
+
+            <div class="content-area admin-area">
+                <div class="form-container">
+                    <h3 id="formTitle">Add New Song</h3>
+                    <form id="songForm">
+                        <input type="hidden" id="songId">
+                        <div class="form-group">
+                            <label for="title">Song Title</label>
+                            <input type="text" id="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="artist">Artist</label>
+                            <input type="text" id="artist" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="album">Album</label>
+                            <input type="text" id="album">
+                        </div>
+                        <div class="form-group">
+                            <label for="cover_url">Cover Image URL</label>
+                            <input type="url" id="cover_url" placeholder="https://...">
+                        </div>
+                        <div class="form-group">
+                            <label for="audio_url">Cloudinary Audio URL</label>
+                            <input type="url" id="audio_url" required placeholder="https://res.cloudinary.com/...">
+                        </div>
+                        <div class="form-actions">
+                            <button type="submit" class="btn-primary" id="submitBtn">Add Song</button>
+                            <button type="button" class="btn-secondary" id="cancelBtn" style="display:none;">Cancel Edit</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="admin-songs-list">
+                    <h3>Manage Songs</h3>
+                    <div id="adminSongsContainer">
+                        <div class="loading">Loading songs...</div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
